@@ -3,12 +3,14 @@ import React from "react";
 type AccordeonType = {
     title: string
     collapsed: boolean
-    onClick: (collapsed: boolean)=>void
+    items?: []
+    onChange: (collapsed: boolean) => void
+    onClick?: () => void
 }
 
 type AccordeonTitleType = {
     title: string
-    onClick: (collapsed: boolean)=>void
+    onChange: (collapsed: boolean) => void
     collapsed: boolean
 
 }
@@ -17,14 +19,14 @@ export function Accordeon(props: AccordeonType) {
     console.log("Accord rendering")
 
     return <div>
-        <AccordeonTitle title={props.title} onClick={props.onClick} collapsed={props.collapsed}/>
+        <AccordeonTitle title={props.title} onChange={props.onChange} collapsed={props.collapsed}/>
         {props.collapsed || <AccordeonBody/>}
     </div>
 }
 
 function AccordeonTitle(props: AccordeonTitleType) {
     console.log("ACC Title")
-    return <h3 onClick={()=>props.onClick(!props.collapsed)}>{props.title}</h3>
+    return <h3 onClick={() => props.onChange(!props.collapsed)}>{props.title}</h3>
 }
 
 function AccordeonBody() {

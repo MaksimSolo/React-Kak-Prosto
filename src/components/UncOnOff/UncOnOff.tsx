@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 
 type PropsType = {
-    onChange: (on: boolean)=> void
+    onChange?: (on: boolean) => void
+    defaultOn?: boolean
 }
 
 export function UncOnOff(props: PropsType) {
-    let [on, setOn] = useState(false)
+    let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false)
 
     const onStyle = {
         width: '30px',
@@ -37,11 +38,11 @@ export function UncOnOff(props: PropsType) {
 
     const onClicked = () => {
         setOn(true)
-        props.onChange(true)
+        // props.onChange(true)
     }
     const offClicked = () => {
         setOn(false)
-        props.onChange(false)
+        // props.onChange(false)
     }
 
     return <div>
@@ -50,6 +51,7 @@ export function UncOnOff(props: PropsType) {
         <div style={offStyle} onClick={offClicked}>Off
         </div>
         <div style={indicatorStyle}></div>
+        {on.toString()}
     </div>
 
 }
