@@ -38,5 +38,6 @@ NotCollapsedMenu.args = {
 
 export const AccordeonCollapseChanging = () => {
     let [collapsed, setCollapsed] = useState<boolean>(true)
-    return <Accordeon title={'MAIN MENU'} collapsed={collapsed} onChange={setCollapsed}/>
+    return <Accordeon title={'MAIN MENU'} collapsed={collapsed} onChange={setCollapsed} items={[{title: 'Miroslav', value: 1}, {title: 'Kamilla', value: 2},
+        {title: 'Anna', value: 3}, {title: 'Ivan', value: 4}, {title: 'Alyona', value: 5}]} onClick={onClickCallback}/>
 }
