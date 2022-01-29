@@ -5,7 +5,7 @@ type PropsType = {
     defaultOn?: boolean
 }
 
-export function UncOnOff(props: PropsType) {
+export const UncOnOff = React.memo( function UncOnOff(props: PropsType) {
     let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false)
 
     const onStyle = {
@@ -54,4 +54,4 @@ export function UncOnOff(props: PropsType) {
         {on.toString()}
     </div>
 
-}
+});

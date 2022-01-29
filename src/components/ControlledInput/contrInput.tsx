@@ -4,7 +4,7 @@ import React, {ChangeEvent, useRef, useState} from "react";
 
 //export const ControlledInput = () => <input value={'it-inc'}/>;
 
-export const TrackValueUncontrolledInput = () => {
+export const TrackValueUncontrolledInput = React.memo(function TrackValueUncontrolledInput() {
     const [value, setValue] = useState('')
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
         const actualValue = event.currentTarget.value;
@@ -13,7 +13,7 @@ export const TrackValueUncontrolledInput = () => {
     return <>
         <input onChange={onChange}/> - {value};
     </>
-}
+});
 
 //можно так: но это нарушение принципов реакт, так как идет обращение напрямую в DOM.
 /*export const GetValueUncontrolledInputByButton = () => {
@@ -29,7 +29,7 @@ export const TrackValueUncontrolledInput = () => {
     </>
 }*/
 
-export const GetValueUncontrolledInputByButton = () => {
+export const GetValueUncontrolledInputByButton = React.memo(function GetValueUncontrolledInputByButton() {
     const [value, setValue] = useState('')
     const inputRef = useRef<HTMLInputElement>(null)
     const saveButton = () => {
@@ -41,25 +41,26 @@ export const GetValueUncontrolledInputByButton = () => {
         <button onClick={saveButton}>save</button>
         - {value};
     </>
-}
+});
 
-export const ControlledInput = () => {
+
+export const ControlledInput = React.memo(function ControlledInput() {
     const [parentValue, setParentValue] = useState('')
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         setParentValue(e.currentTarget.value)
     }
     return <input value={parentValue} onChange={onChange}/>
-}
+})
 
-export const ControlledCheckbox = () => {
+export const ControlledCheckbox = React.memo(function ControlledCheckbox() {
     const [parentValue, setParentValue] = useState(true)
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
         setParentValue(e.currentTarget.checked)
     }
     return <input type={'checkbox'} checked={parentValue} onChange={onChange}/>
-}
+})
 
-export const ControlledSelect = () => {
+export const ControlledSelect = React.memo(function ControlledSelect() {
     const [parentValue, setParentValue] = useState<string | number | readonly string[] | undefined>(1)
     const onChange = (e: ChangeEvent<HTMLSelectElement>) => {
         setParentValue(e.currentTarget.value)
@@ -69,9 +70,8 @@ export const ControlledSelect = () => {
         <option value={'2'}>Bryansk</option>
         <option value={'3'}>Moscow</option>
         <option value={'4'}>Minsk</option>
-
     </select>
-}
+});
 
 
 

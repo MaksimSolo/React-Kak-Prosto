@@ -25,14 +25,14 @@ type AccordeonBodyType = {
 }
 
 
-export function Accordeon(props: AccordeonType) {
+export const Accordeon = React.memo(function Accordeon(props: AccordeonType) {
     console.log("Accord rendering")
 
     return <div>
         <AccordeonTitle title={props.title} onChange={props.onChange} collapsed={props.collapsed}/>
         {props.collapsed || <AccordeonBody items={props.items} onClick={props.onClick}/>}
     </div>
-}
+});
 
 function AccordeonTitle(props: AccordeonTitleType) {
     console.log("ACC Title")

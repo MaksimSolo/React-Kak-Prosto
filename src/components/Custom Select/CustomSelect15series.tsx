@@ -11,7 +11,7 @@ export type SelectType = {
     onChange: (value: any) => void
 }
 
-const Select = (props: SelectType) => {
+export const Select = React.memo(function SelectComponent(props: SelectType) {
 
     const [active, setActive] = useState(false)
     const [hoveredElementValue, setHoveredElementValue] = useState(props.value)
@@ -48,7 +48,7 @@ const Select = (props: SelectType) => {
             </div>
         </>
     );
-};
+});
 
-export default Select;
+
 

@@ -10,7 +10,7 @@ type StarPropsType = {
     value: number
 }
 
-export function UnCtrldRating(props: RatingPropsType) {
+export const UnCtrldRating = React.memo(function UnCtrldRating(props: RatingPropsType) {
     console.log("Rating rendering")
 
     let [value, setValue] = useState(0)
@@ -24,7 +24,7 @@ export function UnCtrldRating(props: RatingPropsType) {
             <Star selected={value > 4} setValue={setValue} value={5}/>
         </div>
     )
-}
+})
 
 function Star(props: StarPropsType) {
     console.log("Star rendering")

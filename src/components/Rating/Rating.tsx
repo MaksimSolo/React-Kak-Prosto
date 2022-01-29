@@ -16,7 +16,7 @@ type StarPropsType = {
     value: number
 }
 
-export function Rating(props: RatingPropsType) {
+export const Rating = React.memo(function Rating(props: RatingPropsType) {
     console.log("Rating rendering")
     return (
         <div>
@@ -27,7 +27,7 @@ export function Rating(props: RatingPropsType) {
             <Star selected={props.value > 4} onClick={props.onClick} value={5}/>
         </div>
     )
-}
+})
 
 function Star(props: StarPropsType) {
     console.log("Star rendering")

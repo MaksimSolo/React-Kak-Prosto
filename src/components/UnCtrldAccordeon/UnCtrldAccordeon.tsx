@@ -10,7 +10,7 @@ type AccordeonTitleType = {
     onClick: ()=> void
 }
 
-export function UnCtrldAccordeon(props: AccordeonType) {
+export const UnCtrldAccordeon = React.memo(function UnCtrldAccordeon (props: AccordeonType) {
     console.log("Accord rendering")
     let [collapsed, setCollapsed] = useState(true)
 
@@ -22,7 +22,7 @@ export function UnCtrldAccordeon(props: AccordeonType) {
         <AccordeonTitle title={props.title} onClick={changeStatus}/>
         {collapsed || <AccordeonBody/>}
     </div>
-}
+})
 
 function AccordeonTitle(props: AccordeonTitleType) {
     console.log("ACC Title")

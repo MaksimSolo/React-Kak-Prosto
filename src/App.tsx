@@ -12,8 +12,8 @@ import {
     GetValueUncontrolledInputByButton,
     TrackValueUncontrolledInput
 } from "./components/ControlledInput/contrInput";
-import CustomSelect from "./components/Custom Select/CustomSelect";
-import Select from "./components/Custom Select/CustomSelect15series";
+import {CustomSelect} from "./components/Custom Select/CustomSelect";
+import {Select} from "./components/Custom Select/CustomSelect15series";
 
 type PageTitleType = {
     title: string
@@ -45,14 +45,14 @@ function App() {
         <div className={'App'}>
             {/*<TrackValueUncontrolledInput/>*/}
             {/*<GetValueUncontrolledInputByButton/>*/}
-            {/*<ControlledInput/>*/}
-            {/*<ControlledCheckbox/>*/}
-            {/*<ControlledSelect/>*/}
-            <Select onChange={setSelectValue}
+            {/*<ControlledInput/>
+            <ControlledCheckbox/>
+            <ControlledSelect/>*/}
+            {/*<Select onChange={setSelectValue}
                     value={selectValue}
                     items={[{title: 'Miroslav', value: 1}, {title: 'Kamilla', value: 2},
                         {title: 'Anna', value: 3}, {title: 'Ivan', value: 4}, {title: 'Alyona', value: 5}]}
-            />
+            />*/}
             {/*<CustomSelect title={customSelectTitle} collapsed={collapsed3}
                           onChange={setCollapsed3}
                           items={[{title: 'Miroslav', value: 1}, {title: 'Kamilla', value: 2},
@@ -61,7 +61,7 @@ function App() {
                           onDoubleClick={changeTitleOfCustomSelect}/>*/}
             {/*<UnCtrldAccordeon title={'MAIN MENU'}/>
             <UnCtrldAccordeon title={'Secondary MENU'}/>*/}
-            {/* <UnCtrldRating />
+            {/*<UnCtrldRating />
             <UnCtrldRating />
             <UnCtrldRating />
             <UnCtrldRating />
@@ -69,30 +69,31 @@ function App() {
             {/*<OnOff value={on} onClick={setOn}/>*/}
             {/*<UncOnOff/>
             <UncOnOff/>*/}
-            {/* <PageTitle title={'This is APP component'}/>
+            {/*<PageTitle title={'This is APP component'}/>
             <PageTitle title={'My friends'}/>*/}
-            {/*  Article 1
-            <Rating value={rateValue} onClick = {setRateValue}/>*/}
+
             {/*<Accordeon title={'MAIN MENU'} collapsed={collapsed} onChange={setCollapsed}
                        items={[{title: 'Miroslav', value: 1}, {title: 'Kamilla', value: 2},
                            {title: 'Anna', value: 3}, {title: 'Ivan', value: 4}, {title: 'Alyona', value: 5}]} onClick={onClickCallBack}/>
             <Accordeon title={'Secondary MENU'} collapsed={collapsed2} onChange={setCollapsed2}
                        items={[{title:'Moscow',value:1}, {title:'Saint-Petersburg',value:2},{title: 'Bryansk',value:3}]} onClick={onClickCallBack}/>*/}
-            {/* Article 2
-            <Rating value={rateValue} onClick = {setRateValue}/>
-            <Rating value={rateValue} onClick = {setRateValue}/>
-            <Rating value={rateValue} onClick = {setRateValue}/>
-            <Rating value={rateValue} onClick = {setRateValue}/>
-            <Rating value={rateValue} onClick = {setRateValue}/>
-            <Rating value={rateValue} onClick = {setRateValue}/>*/}
+            {/*Article 1
+            <Rating value={rateValue} onClick={setRateValue}/>
+            Article 2
+            <Rating value={rateValue} onClick={setRateValue}/>
+            <Rating value={rateValue} onClick={setRateValue}/>
+            <Rating value={rateValue} onClick={setRateValue}/>
+            <Rating value={rateValue} onClick={setRateValue}/>
+            <Rating value={rateValue} onClick={setRateValue}/>
+            <Rating value={rateValue} onClick={setRateValue}/>*/}
         </div>
     );
 }
 
 export default App;
 
-function PageTitle(props: PageTitleType) {
+const PageTitle = React.memo(function PageTitle(props: PageTitleType) {
     console.log("AppTitle rendering")
     return <h1>{props.title}</h1>
-}
+});
 

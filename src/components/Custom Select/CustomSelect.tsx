@@ -12,7 +12,7 @@ export type CustomSelectType ={
     onClick: (value: any)=>void
     onDoubleClick: (title: string)=>void
 }
-const CustomSelect = (props:CustomSelectType) => {
+const CustomSelectComponent = (props:CustomSelectType) => {
 
     return (
         <div>
@@ -22,5 +22,6 @@ const CustomSelect = (props:CustomSelectType) => {
     );
 };
 
-export default CustomSelect;
+export const CustomSelect= React.memo(CustomSelectComponent)
+
 
