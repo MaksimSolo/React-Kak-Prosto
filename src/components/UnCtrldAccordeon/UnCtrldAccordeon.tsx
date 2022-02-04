@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useReducer} from "react";
+import {reducer} from "./reducer";
 
 type AccordeonType = {
     title: string
@@ -7,20 +8,28 @@ type AccordeonType = {
 
 type AccordeonTitleType = {
     title: string
-    onClick: ()=> void
+    onClick: () => void
 }
 
-export const UnCtrldAccordeon = React.memo(function UnCtrldAccordeon (props: AccordeonType) {
+export const UnCtrldAccordeon = React.memo(function UnCtrldAccordeon(props: AccordeonType) {
     console.log("Accord rendering")
-    let [collapsed, setCollapsed] = useState(true)
 
-    const changeStatus = () => {
+
+    //let [collapsed, setCollapsed] = useState(true)
+    let [state, dispatch] = useReducer(reducer, {collapsed: true})
+
+
+    /*const changeStatus = () => {
         setCollapsed(!collapsed)
+    }*/
+    const changeStatus = () => {
+                dispatch({type: 'TOGGLE-COLLAPSED'})
     }
 
     return <div>
         <AccordeonTitle title={props.title} onClick={changeStatus}/>
-        {collapsed || <AccordeonBody/>}
+        {state.collapsed || <AccordeonBody/>}
+
     </div>
 })
 

@@ -59,8 +59,8 @@ function App() {
                               {title: 'Anna', value: 3}, {title: 'Ivan', value: 4}, {title: 'Alyona', value: 5}]}
                           onClick={onClickCallBack}
                           onDoubleClick={changeTitleOfCustomSelect}/>*/}
-            {/*<UnCtrldAccordeon title={'MAIN MENU'}/>
-            <UnCtrldAccordeon title={'Secondary MENU'}/>*/}
+            <UnCtrldAccordeon title={'MAIN MENU'}/>
+            <UnCtrldAccordeon title={'Secondary MENU'}/>
             {/*<UnCtrldRating />
             <UnCtrldRating />
             <UnCtrldRating />
