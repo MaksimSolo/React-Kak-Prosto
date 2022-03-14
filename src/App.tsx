@@ -16,6 +16,7 @@ import {CustomSelect} from "./components/Custom Select/CustomSelect";
 import {Select} from "./components/Custom Select/CustomSelect15series";
 import {ExampleUseMemo, HelpToReactMemo} from "./ExampleUseMemo";
 import {CityType, FilterType, MemoSelect} from "./components/Custom Select/MemoCustomSelect";
+import {LikeUseCallback} from "./ExampleUseCallback";
 
 
 type PageTitleType = {
@@ -61,23 +62,28 @@ function App() {
                 return citySelect
         }
     }*/
-    const titlefilteredSelect = useMemo(()=>{return citySelect.filter(i => i.title.toLowerCase().indexOf('m') > -1)},[citySelect])
-    const populationfilteredSelect = useMemo(()=>{return citySelect.filter(i => i.population < 10000000)},[citySelect])
+    const titlefilteredSelect = useMemo(() => {
+        return citySelect.filter(i => i.title.toLowerCase().indexOf('m') > -1)
+    }, [citySelect])
+    const populationfilteredSelect = useMemo(() => {
+        return citySelect.filter(i => i.population < 10000000)
+    }, [citySelect])
     //const allSelect = useMemo(()=>{return citySelect},[citySelect])
 
     return (
         <div className={'App'}>
-            <button onClick={() => {
+            <LikeUseCallback />
+            {/*<button onClick={() => {
                 setCounter(counter + 1)
             }}>+
-            </button>
-            {counter}
-            <MemoSelect items={citySelect} onChange={setSelectValue1} value={selectValue1}
+            </button>*/}
+            {/*{counter}*/}
+            {/*<MemoSelect items={citySelect} onChange={setSelectValue1} value={selectValue1}
                         filterForSelect={titlefilteredSelect}/>
             <MemoSelect items={citySelect} onChange={setSelectValue2} value={selectValue2}
                         filterForSelect={populationfilteredSelect}/>
             <MemoSelect items={citySelect} onChange={setSelectValue3} value={selectValue3}
-                        filterForSelect={citySelect}/>
+                        filterForSelect={citySelect}/>*/}
 
             {/*<ExampleUseMemo/>*/}
             {/*<HelpToReactMemo/>*/}
