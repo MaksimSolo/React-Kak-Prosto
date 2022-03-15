@@ -17,6 +17,7 @@ import {Select} from "./components/Custom Select/CustomSelect15series";
 import {ExampleUseMemo, HelpToReactMemo} from "./ExampleUseMemo";
 import {CityType, FilterType, MemoSelect} from "./components/Custom Select/MemoCustomSelect";
 import {LikeUseCallback} from "./ExampleUseCallback";
+import {UseStateExample} from "./UseStateExample";
 
 
 type PageTitleType = {
@@ -72,7 +73,8 @@ function App() {
 
     return (
         <div className={'App'}>
-            <LikeUseCallback />
+            <UseStateExample/>
+            {/*<LikeUseCallback />*/}
             {/*<button onClick={() => {
                 setCounter(counter + 1)
             }}>+
