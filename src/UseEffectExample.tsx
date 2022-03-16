@@ -82,14 +82,14 @@ export const SetIntervalExample = () => {
     useEffect(() => {
         setInterval(() => {
             console.log("TIKTOKK")
-            setCounter(state=>state+1)
+            setCounter(state => state + 1)
         }, 1000)
     }, [])
 
 
     return (
         <div>
-           {/* <button onClick={() => {
+            {/* <button onClick={() => {
                 setCounter(counter + 1)
             }}>+
             </button>*/}
@@ -101,6 +101,30 @@ export const SetIntervalExample = () => {
                 </button>*/}
                 fake - {fake}
             </div>
+        </div>
+    );
+};
+
+export const SetClockTimeExample = () => {
+    console.log('SetClockTime')
+
+    const [timeCounter, setTimeCounter] = useState('')
+
+    useEffect(() => {
+        setInterval(() => {
+            let date = new Date();
+let hours = date.getHours();
+let minutes = date.getMinutes();
+let seconds = date.getSeconds();
+let timeCounter = 'hrs: ' + hours + '- min: '+ minutes + '- sec: '+ seconds;
+            setTimeCounter(timeCounter)
+        }, 1000)
+    }, [])
+
+
+    return (
+        <div>
+            {timeCounter}
         </div>
     );
 };
