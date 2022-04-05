@@ -106,21 +106,29 @@ export const SetIntervalExample = () => {
 };
 
 export const SetClockTimeExample = () => {
-    console.log('SetClockTime')
 
-    const [timeCounter, setTimeCounter] = useState('')
+    const [date, setDate] = useState(new Date())
+
+    const getTwoDigits = (num: number) => {
+        return num < 10 ? '0' + num : num
+    }
+    //let hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+    let hours = getTwoDigits(date.getHours());
+    // let minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+    let minutes = getTwoDigits(date.getMinutes());
+    // let seconds = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+    let seconds = getTwoDigits(date.getSeconds());
+    let timeCounter = 'hrs: ' + hours + '- min: ' + minutes + '- sec: ' + seconds;
 
     useEffect(() => {
-        setInterval(() => {
-            let date = new Date();
-let hours = date.getHours();
-let minutes = date.getMinutes();
-let seconds = date.getSeconds();
-let timeCounter = 'hrs: ' + hours + '- min: '+ minutes + '- sec: '+ seconds;
-            setTimeCounter(timeCounter)
-        }, 1000)
-    }, [])
 
+        const intervalID = setInterval(() => {
+            console.log('TIK')
+            setDate(new Date())
+        }, 1000)
+
+        return () => {clearInterval(intervalID)}
+    }, []);
 
     return (
         <div>

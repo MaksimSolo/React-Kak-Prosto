@@ -14,7 +14,7 @@ export const LikeUseCallback = () => {
             setBooks(newBooks)
         }
     }, [books])*/
-    //чтобы не писать такой сложный useMemo - можно примениить useCallback
+    //чтобы не писать такой сложный useMemo - можно применить useCallback
 
     const memoizedAddBook2 = useCallback(() => {
             console.log(books)
