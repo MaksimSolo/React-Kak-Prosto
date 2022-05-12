@@ -18,7 +18,9 @@ import {ExampleUseMemo, HelpToReactMemo} from "./ExampleUseMemo";
 import {CityType, FilterType, MemoSelect} from "./components/Custom Select/MemoCustomSelect";
 import {LikeUseCallback} from "./ExampleUseCallback";
 import {UseStateExample} from "./UseStateExample";
-import {SetClockTimeExample, SetIntervalExample, SetTimeOutExample, UseEffectExample,} from "./UseEffectExample";
+import {SetIntervalExample, SetTimeOutExample, UseEffectExample,} from "./UseEffectExample";
+import {DigitalView} from "./components/Clock/DigitalView";
+import {Clock} from "./components/Clock/Clock";
 
 
 type PageTitleType = {
@@ -74,7 +76,7 @@ function App() {
 
     return (
         <div className={'App'}>
-            <SetClockTimeExample/>
+            <Clock mode={'analog'}/>
             {/*<SetIntervalExample/>*/}
             {/*<SetTimeOutExample/>*/}
             {/*<UseEffectExample/>*/}
