@@ -18,7 +18,13 @@ import {ExampleUseMemo, HelpToReactMemo} from "./ExampleUseMemo";
 import {CityType, FilterType, MemoSelect} from "./components/Custom Select/MemoCustomSelect";
 import {LikeUseCallback} from "./ExampleUseCallback";
 import {UseStateExample} from "./UseStateExample";
-import {SetIntervalExample, SetTimeOutExample, UseEffectExample,} from "./UseEffectExample";
+import {
+    KeysTrackerExample,
+    ResetEffectExample,
+    SetIntervalExample, SetTimeOutCleared,
+    SetTimeOutExample,
+    UseEffectExample,
+} from "./UseEffectExample";
 import {DigitalView} from "./components/Clock/DigitalView";
 import {Clock} from "./components/Clock/Clock";
 
@@ -76,7 +82,10 @@ function App() {
 
     return (
         <div className={'App'}>
-            <Clock mode={'analog'}/>
+            <SetTimeOutCleared/>
+            {/*<KeysTrackerExample/>*/}
+            {/*<ResetEffectExample/>*/}
+            {/*<Clock mode={'analog'}/>*/}
             {/*<SetIntervalExample/>*/}
             {/*<SetTimeOutExample/>*/}
             {/*<UseEffectExample/>*/}

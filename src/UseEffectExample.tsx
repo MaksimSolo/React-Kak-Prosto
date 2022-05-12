@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {cleanup} from "@testing-library/react";
 
 
 export const UseEffectExample = () => {
@@ -80,10 +81,13 @@ export const SetIntervalExample = () => {
     const [fake, setFake] = useState(0)
 
     useEffect(() => {
-        setInterval(() => {
+        const intervalId = setInterval(() => {
             console.log("TIKTOKK")
             setCounter(state => state + 1)
         }, 1000)
+        return () => {
+            clearInterval(intervalId)
+        }
     }, [])
 
 
@@ -136,5 +140,105 @@ export const SetIntervalExample = () => {
 //         </div>
 //     );
 // };
+
+
+export const ResetEffectExample = () => {
+    console.log('Component ResetEffectExample rendered')
+
+    const [counter, setCounter] = useState(0)
+
+
+    useEffect(() => {
+        console.log('Hi There! Effect is already happened----' + counter)
+
+        return () => {
+            console.log('Reset Effect----------' + counter)          //зачистка происходит либо перед "уничтожением" компонента, либо перед
+            //тем как выполнится перерендер и новый эффект произойдет,то есть как бы ретурн эффекта хранит то старое значение чтобы его зачистить
+            //причем вначале происходит зачистка а уже потом новый эффект!!!!
+
+        }
+    }, [counter])
+
+
+    return (
+        <div>
+            {counter}-------
+            <button onClick={() => setCounter(counter + 1)}>+</button>
+        </div>
+    );
+};
+
+
+export const KeysTrackerExample = () => {
+
+
+    const [text, setText] = useState('')
+    console.log('Component  rendered with text -------' + text)
+
+    useEffect(() => {
+
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key);
+            setText(text + e.key)
+        }
+        window.addEventListener('keypress', handler)
+        //в данной ситуации если мы перейдем в другую компоненту, и вернемся - если зачистки не будет
+        //значит всегда будет фиксироваться нажатие клавиш, и утечка памяти!!!!
+
+        return () => {
+            window.removeEventListener('keypress', handler)  //в таком случае если не сделали зачистку - будет огромное количество рендеров
+        }
+    }, [text])
+
+
+    return (
+        <div>
+            Typed text:---{text}
+        </div>
+    );
+};
+
+
+export const SetTimeOutCleared = () => {
+
+
+    const [text, setText] = useState('')
+    console.log('Component  rendered with text -------' + text)
+
+    useEffect(() => {
+        const timeoutID = setTimeout(() => {
+            console.log('Timeout EXPIRED')
+            setText('3 seconds passed')
+        }, 3000)  // в данной ситуации если мы вышли из компоненты ранее чем 3 сек, то будет ошибка, потому что мы пытаемся обновить
+        //стейт уже неживой компоненты!!!!!
+        // необходимо сделать очистку
+        return () => {
+            clearTimeout(timeoutID) // так нужно поступать и с запросами на сервер, кога мы можем уйти из компоненты не дожидаясь ответа с сервера
+        }
+    }, [text])
+
+
+    return (
+        <div>
+            Typed text:---{text}
+        </div>
+    );
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

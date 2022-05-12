@@ -4,10 +4,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: solid 1px #ccc;
+
     border-radius: 5px;
     margin: 5px;
-    background: #ccc;
+
 }
 .clock .analog-clock {
     width: 100px;
@@ -15,7 +15,7 @@
     border: solid 1px #000;
     border-radius: 50%;
     position: relative;
-    background: #fff;
+    background: #c1cdcd;
 }
 .clock .analog-clock .dial {
     position: absolute;
